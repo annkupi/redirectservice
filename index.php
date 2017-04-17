@@ -16,8 +16,7 @@
                     data: 'input=' + longLink,
                     success: function (result)
                     {
-                        $('#output').html("new ajax link: " + result);
-//                        $('#inputoutput').html("OLD ajax link: " + longLink);
+                        $('#output').attr('value', result);
                     }
             });
         }
@@ -26,7 +25,7 @@
 </head>
 <body>
 
-<!--    <form name="linkInput" method="post">-->
+    <form name="linkInput" method="post">
         <p class="labelForm"> Сокращение ссылок </p>
         <p>
             <input type="text" name="input" id="input" size="60" placeholder="Введите ссылку" />
@@ -36,16 +35,9 @@
         </p>
         <p>
             Короткая ссылка: <br>
-            <!--
             <input type="text" name="output" id="output" size="60" placeholder="Здесь появится ссылка">
-            -->
-            <div id="output"></div>
-            <!--
-            Исходная: <br>
-            <div id="inputoutput"></div>
-            -->
         </p>
-<!--    </form>-->
+    </form>
 
 </body>
 </html>

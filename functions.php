@@ -15,9 +15,9 @@ function ConnectDB($host, $db, $user, $password)
 
 function GetNextShortLink($longLink)
 {
-    $protocol = "http";
+    $protocol = "http"; //TODO: enter current parameters
     $siteName = "redirectservice"; //TODO: enter current parameters
-    $host = "localhost";
+    $host = "localhost"; //TODO: enter current parameters
     $link = ConnectDB($host, "RedirectService", "root", "WVClanguniver"); //TODO: enter current parameters
     $shortLinkLength = 10; //TODO: enter current parameters
 
@@ -27,10 +27,6 @@ function GetNextShortLink($longLink)
     $lastID = mysqli_fetch_array($mysqlResult)['id'];
     $currentID = $lastID + 1;
 
-    //echo "lastID = " . $lastID . "<br>"; //TODO: delete this line
-    //echo "currentID = " . $currentID . "<br>"; //TODO: delete this line
-    //echo "in-func Link = " . $longLink . "<br>"; //TODO: delete this line
-
     $shortLink = base_convert((string)$currentID, 10, 36);
     while (strlen($shortLink) < $shortLinkLength)
     {
@@ -39,9 +35,6 @@ function GetNextShortLink($longLink)
 
     $query = "INSERT INTO `link`(`longLink`, `shortLink`) VALUES ('$longLink', '$shortLink')";
     $mysqlResult = mysqli_query ($link, $query);
-
-    //echo "query = " . $query . "<br>"; //TODO: delete this line
-    //echo "mysqlResult = " . $mysqlResult . "<br>"; //TODO: delete this line
 
     if ($mysqlResult == 1) return $protocol . "://" . $host . "/" . $siteName . "/" . $shortLink;
     else return "error";
