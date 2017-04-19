@@ -36,7 +36,7 @@ function GetNextShortLink($longLink)
     $query = "INSERT INTO `link`(`longLink`, `shortLink`) VALUES ('$longLink', '$shortLink')";
     $mysqlResult = mysqli_query ($link, $query);
 
-    if ($mysqlResult == 1) return $protocol . "://" . $host . "/" . $siteName . "/" . $shortLink;
+    if ($mysqlResult == 1) return $protocol . "://" . $host . "/" . $siteName . "/generated/" . $shortLink;
     else return "error";
 }
 ?>
