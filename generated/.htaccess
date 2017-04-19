@@ -1,5 +1,2 @@
 RewriteEngine on
-#RewriteRule /? /redirectservice/generated/redirector.php?shortUrl=$1
-#RewriteRule ^(.*)$ redirector.php?shortUrl=$1 [L]
 RewriteRule ^([a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?)$ redirector.php?shortUrl=$1 [L]
-#RewriteRule ^([0-9]+)/$ redirector.php?shortUrl=$1 [L]
