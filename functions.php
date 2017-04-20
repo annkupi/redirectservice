@@ -21,6 +21,21 @@ function GetNextShortLink($longLink)
     $link = ConnectDB($host, "RedirectService", "root", "WVClanguniver"); //TODO: enter current parameters
     $shortLinkLength = 10; //TODO: enter current parameters
 
+        //$longLink format
+    if ( !(strpos($longLink, "http://") || strpos($longLink, "https://")) )
+    {
+        $longLink = "http://" . $longLink;
+    }
+
+        //Old links check
+    $query = "SELECT `id`, `longLink`, `shortLink` FROM `link` WHERE `longLink`='$longLink'";
+    $mysqlResult = mysqli_query ($link, $query);
+    if ($AllResult = mysqli_fetch_array($mysqlResult))
+    {
+        $oldShortLink = $AllResult['shortLink'];
+        return $protocol . "://" . $host . "/" . $siteName . "/generated/" . $oldShortLink;
+    }
+
     $query = "SELECT `id`,`shortLink` FROM `link` WHERE `id`=( SELECT max(`id`) FROM `link` )";
     $mysqlResult = mysqli_query ($link, $query);
 
