@@ -6,7 +6,7 @@ $host = "localhost"; //TODO: enter current parameters
 $siteName = "redirectservice"; //TODO: enter current parameters
 $dbName = "RedirectService"; //TODO: enter current parameters
 $user = "root"; //TODO: enter current parameters
-$password = "WVClanguniver"; //TODO: enter current parameters
+$password = "password123"; //TODO: enter current parameters
 
     //Connect DB
 $dbLink = mysqli_connect($host, $user, $password, $dbName) or trigger_error(mysql_error(),E_USER_ERROR);

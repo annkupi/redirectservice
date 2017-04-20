@@ -18,11 +18,11 @@ function GetNextShortLink($longLink)
     $protocol = "http"; //TODO: enter current parameters
     $siteName = "redirectservice"; //TODO: enter current parameters
     $host = "localhost"; //TODO: enter current parameters
-    $link = ConnectDB($host, "RedirectService", "root", "WVClanguniver"); //TODO: enter current parameters
+    $link = ConnectDB($host, "RedirectService", "root", "password123"); //TODO: enter current parameters
     $shortLinkLength = 10; //TODO: enter current parameters
 
         //$longLink format
-    if ( !(strpos($longLink, "http://") || strpos($longLink, "https://")) )
+    if ( (string)strpos($longLink, "http://") != "0" & (string)strpos($longLink, "https://") != "0")
     {
         $longLink = "http://" . $longLink;
     }
